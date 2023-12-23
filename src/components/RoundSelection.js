@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
-const RoundSelection = () => {
-	const roundButtons = ["सहकारी तथा सिद्धि गणेश", "सामान्य ज्ञान तथा समसामयिक", "Rapid Fire", "Audio Visual"];
+const RoundSelection = ({ questions, setCurrentQuestionSet }) => {
+	const rounds = Object.keys(questions);
+
+	const handleClick = (round) => {
+		setCurrentQuestionSet(questions[round]);
+	}
 
 	return (
 		<div className="h-screen">
@@ -10,10 +14,12 @@ const RoundSelection = () => {
 			</nav>
 			<div className="flex flex-col h-5/6 items-center justify-center text-4xl font-bold m-auto">
 				{
-					roundButtons.map((round, i) => {
+
+					rounds.map((round) => {
 						return (
-							<Link to={{ pathname: `/rounds/${i}/questions` }}
+							<Link to={{ pathname: `/rounds/${round}/questions` }}
 								key={round}
+								onClick={() => handleClick(round)}
 								className="rounded-full text-center w-1/2 py-6 px-4  my-4 focus:outline-none bg-green-400 text-white' : 'bg-green-200 text-gray-700 hover:bg-blue-200"
 							>
 								{round}

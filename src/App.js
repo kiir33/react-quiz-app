@@ -7,6 +7,11 @@ import { useEffect, useState } from 'react';
 
 const App = () => {
   const SELECTED_QUESTIONS = "selectedQuestions";
+  const questions = require("./data/questions.json");
+
+  const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState({});
+
   const [selectedQuestions, setSelectedQuestions] = useState(() => {
     const storedValue = localStorage.getItem(SELECTED_QUESTIONS);
     return storedValue ? JSON.parse(storedValue) : {}
@@ -34,18 +39,30 @@ const App = () => {
   }
 
   const clearLocalStorage = () => {
-		// Remove a specific item from localStorage
-		localStorage.removeItem(SELECTED_QUESTIONS);
+    // Remove a specific item from localStorage
+    localStorage.removeItem(SELECTED_QUESTIONS);
     setSelectedQuestions({});
-	}
+  }
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home clearLocalStorage={clearLocalStorage} />} />
-        <Route path="/rounds" element={<RoundSelection />} />
-        <Route path="/rounds/:round/questions" element={<QuestionSelection selectedQuestions={selectedQuestions} addSelected={addSelected} />} />
-        <Route path="/rounds/:round/questions/:number" element={<Question />} />
+        <Route path="/rounds" element={
+          <RoundSelection
+            questions={questions}
+            setCurrentQuestionSet={setCurrentQuestionSet}
+          />}
+        />
+        <Route path="/rounds/:round/questions" element={
+          <QuestionSelection
+            currentQuestionSet={currentQuestionSet}
+            setCurrentQuestion={setCurrentQuestion}
+            selectedQuestions={selectedQuestions}
+            addSelected={addSelected}
+          />}
+        />
+        <Route path="/rounds/:round/questions/:number" element={<Question currentQuestion={currentQuestion} />} />
       </Route>
     )
   );
