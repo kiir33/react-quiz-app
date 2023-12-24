@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const RoundSelection = ({ questions, setCurrentQuestionSet }) => {
+const RoundSelection = ({ currentGameName, questions, setCurrentQuestionSet }) => {
 	const rounds = Object.keys(questions);
 
 	const handleClick = (round) => {
@@ -11,7 +11,7 @@ const RoundSelection = ({ questions, setCurrentQuestionSet }) => {
 		<div className="h-screen">
 			<nav className="flex text-rose-800 pe-44 font-semibold text-6xl bg-rose-100">
 				<Link to="/" className="hover:bg-rose-200 rounded text-6xl py-8 px-16"> 🏠 </Link>
-				<h1 className="m-auto">चरणहरू</h1>
+				<h1 className="m-auto">{currentGameName}</h1>
 			</nav>
 			<div className="flex flex-col h-5/6 items-center justify-center text-4xl font-bold m-auto">
 				{

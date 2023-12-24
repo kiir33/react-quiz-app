@@ -6,8 +6,11 @@ import Question from './components/Question';
 import { useEffect, useState } from 'react';
 
 const App = () => {
+  const currentGameIndex = 1;
   const SELECTED_QUESTIONS = "selectedQuestions";
-  const questions = require("./data/questions_set_2.json");
+
+  const games = ["सेमी फाइनल - १", "सेमी फाइनल - २", "फाइनल"];
+  const questions = require(`./data/questions_set_${currentGameIndex}.json`);
 
   const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});
@@ -50,6 +53,7 @@ const App = () => {
         <Route index element={<Home clearLocalStorage={clearLocalStorage} />} />
         <Route path="/rounds" element={
           <RoundSelection
+            currentGameName={games[currentGameIndex - 1]}
             questions={questions}
             setCurrentQuestionSet={setCurrentQuestionSet}
           />}
