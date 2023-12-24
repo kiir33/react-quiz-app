@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 const App = () => {
   const SELECTED_QUESTIONS = "selectedQuestions";
-  const questions = require("./data/questions.json");
+  const questions = require("./data/questions_set_2.json");
 
   const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});
@@ -21,18 +21,18 @@ const App = () => {
     localStorage.setItem(SELECTED_QUESTIONS, JSON.stringify(selectedQuestions));
   }, [selectedQuestions]);
 
-  const addSelected = (roundNumber, questionNumber) => {
+  const addSelected = (round, questionNumber) => {
     // Create a copy of the current state
-    const newSelectedQuestions = { ...selectedQuestions };
+    const newSelectedQuestions = selectedQuestions;
 
     // Check if the roundNumber exists in the state
-    if (!newSelectedQuestions[roundNumber]) {
-      newSelectedQuestions[roundNumber] = [];
+    if (!newSelectedQuestions[round]) {
+      newSelectedQuestions[round] = [];
     }
 
     // Push selected question number
-    if (!newSelectedQuestions[roundNumber].includes(questionNumber)) {
-      newSelectedQuestions[roundNumber].push(questionNumber);
+    if (!newSelectedQuestions[round].includes(questionNumber)) {
+      newSelectedQuestions[round].push(questionNumber);
       // Update the state
       setSelectedQuestions(newSelectedQuestions);
     }
