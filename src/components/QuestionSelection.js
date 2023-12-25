@@ -20,7 +20,7 @@ const QuestionSelection = ({ currentQuestionSet, setCurrentQuestion, selectedQue
 				<Link to={`/rounds`} className="hover:bg-blue-200 rounded text-6xl py-8 px-16"> ⇦ </Link>
 				<h1 className="m-auto">{round}</h1>
 			</nav>
-			<div className="grid grid-cols-8 gap-6 text-4xl font-bold mx-32 my-auto">
+			<div className="grid grid-cols-6 gap-6 text-4xl font-bold mx-32 my-auto">
 				{
 					currentQuestionSet.map((_question, i) => {
 						let questionNumber = i + 1;
