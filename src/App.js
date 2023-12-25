@@ -9,7 +9,7 @@ const App = () => {
   const currentGameIndex = 1;
   const SELECTED_QUESTIONS = "selectedQuestions";
 
-  const games = ["सेमी फाइनल - १", "सेमी फाइनल - २", "फाइनल"];
+  // const games = ["फाइनल", "सेमी फाइनल - १", "सेमी फाइनल - २"];
   const questions = require(`./data/questions_set_${currentGameIndex}.json`);
 
   const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
@@ -53,7 +53,6 @@ const App = () => {
         <Route index element={<Home clearLocalStorage={clearLocalStorage} />} />
         <Route path="/rounds" element={
           <RoundSelection
-            currentGameName={games[currentGameIndex - 1]}
             questions={questions}
             setCurrentQuestionSet={setCurrentQuestionSet}
           />}

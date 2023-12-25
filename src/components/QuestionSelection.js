@@ -22,7 +22,7 @@ const QuestionSelection = ({ currentQuestionSet, setCurrentQuestion, selectedQue
 			</nav>
 			<div className="grid grid-cols-6 gap-6 text-4xl font-bold mx-32 my-auto">
 				{
-					currentQuestionSet.map((_question, i) => {
+					currentQuestionSet.map((question, i) => {
 						let questionNumber = i + 1;
 						return (
 							<Link to={{ pathname: `/rounds/${round}/questions/${questionNumber}` }}
@@ -30,7 +30,7 @@ const QuestionSelection = ({ currentQuestionSet, setCurrentQuestion, selectedQue
 								onClick={() => handleClick(round, questionNumber)}
 								className={`flex flex-col rounded-full align-center justify-center text-center text-white py-4 ${isSelectable(questionNumber) ? 'bg-emerald-600 hover:bg-emerald-800' : 'bg-rose-800 hover:bg-rose-900'}`}
 							>
-								{questionNumber}
+								{question.question_num}
 							</Link>
 						);
 					})
