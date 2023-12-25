@@ -6,11 +6,10 @@ import Question from './components/Question';
 import { useEffect, useState } from 'react';
 
 const App = () => {
-  const currentGameIndex = 1;
   const SELECTED_QUESTIONS = "selectedQuestions";
 
-  // const games = ["फाइनल", "सेमी फाइनल - १", "सेमी फाइनल - २"];
-  const questions = require(`./data/questions_set_${currentGameIndex}.json`);
+  const questions = require("./data_sample/questions_sample_1.json");
+  // const questions = require("./data/questions_set_1.json");
 
   const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});
