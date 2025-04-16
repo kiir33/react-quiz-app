@@ -8,8 +8,10 @@ import { useEffect, useState } from 'react';
 const App = () => {
   const SELECTED_QUESTIONS = "selectedQuestions";
 
-  const questions = require("./data_sample/questions_sample_1.json");
-  // const questions = require("./data/questions_set_1.json");
+  // const questions = require("./data_sample/questions_sample_1.json");
+  const questions = require("./data/nrsu-1.json");
+  // const questions = require("./data/questions_set_2.json");
+  // const questions = require("./data/questions_set_3.json");
 
   const [currentQuestionSet, setCurrentQuestionSet] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState({});

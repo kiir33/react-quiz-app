@@ -6,7 +6,7 @@ const Home = ({ clearLocalStorage }) => {
 			<div className="items-center justify-center bg-white text-center rounded-xl shadow-xl p-8 mx-32 mt-auto">
 				<div className="text-rose-600 font-semibold text-6xl leading-normal tracking-wider">
 					<p className="text-4xl">३१औं स्थापना दिवसको अवसरमा</p>
-					<p>अन्तर सहकारी हाजिरी जवाफ प्रतियोगिता</p>
+					<p>अन्तर विद्यालय/सहकारी हाजिरी जवाफ प्रतियोगिता</p>
 				</div>
 				<img src="images/sg_logo.jpg" alt="Logo" className="mx-auto h-56" />
 				<div className="text-emerald-600 font-semibold text-4xl leading-normal tracking-wider">
